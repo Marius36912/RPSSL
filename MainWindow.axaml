@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="RPSSL.MainWindow"
+        Width="570" Height="330"
+        Title="Rock • Paper • Scissors • Lizard • Spock">
+    <!-- Retter højde og skrift og titler med kommandoer for vinduet i app. (jeg oversatte en del viden fra mit gamle kursus i css og html specifikt "IT business") -->
+    
+    <!-- Stack panel kommando bruges til at placere elementer lodret efter hinanden.
+         Layout kontrollen styrer hvordan GUI elementer organiseres -->
+    <StackPanel Margin="16" Spacing="12">
+
+        <!-- Overskriftstekst til vinduet -->
+        <TextBlock FontSize="20" FontWeight="Bold"
+                   Text="RPSSL : You vs. Agent" />
+
+        <!-- Vandret række med knapper til spillerens valg
+             Jeg har lavet så hver Button er koblet til et click event i C# ses i code behind -->
+        <StackPanel Orientation="Horizontal" Spacing="8">
+            <Button Click="PickRock">🪨 Rock</Button>
+            <Button Click="PickPaper">🗒️ Paper</Button>
+            <Button Click="PickScissors">✂️ Scissors</Button>
+            <Button Click="PickLizard">🦎 Lizard</Button>
+            <Button Click="PickSpock">🖖 Spock</Button>
+        </StackPanel>
+
+        <!-- Tekstfelter ved hjælp af TextBlock kommando til at vise status for runden, årsagen til udfaldet,
+             og den aktuelle score som angivet i opgaven. Her har jeg navngivet GUI-elementer som kan opdateres fra code behind. -->
+        <TextBlock Name="RoundText" FontSize="16" />
+        <TextBlock Name="ReasonText" FontStyle="Italic" />
+        <TextBlock Name="ScoreText" FontSize="16" FontWeight="SemiBold" />
+
+        <!-- Resetknap, kalder ResetGame-metoden i C# når den trykkes -->
+        <Button Click="ResetGame" Width="120">Reset</Button>
+    </StackPanel>
+</Window>
